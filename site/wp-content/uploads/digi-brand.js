@@ -208,7 +208,7 @@
       }
       var hdr = panel.closest('header') || document.querySelector('header');
       var bottom = hdr ? hdr.getBoundingClientRect().bottom : 0;
-      var w = Math.min(1180, document.documentElement.clientWidth - 48);
+      var w = Math.min(1260, document.documentElement.clientWidth - 48);
       panel.style.setProperty('position', 'fixed', 'important');
       panel.style.setProperty('left', '50%', 'important');
       panel.style.setProperty('transform', 'translateX(-50%)', 'important');

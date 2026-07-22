@@ -38,7 +38,16 @@ body.digi-page header .elementor-menu-toggle,
 body.digi-page header .elementor-icon i{ color:#161616 !important; }
 body.digi-page header .elementor-icon svg{ fill:#161616 !important; }
 /* logo size + readable dropdown items */
-header .elementor-element-7ad430b img{ height:34px !important; width:auto !important; }
+header .elementor-element-7ad430b img,
+header .elementor-widget-theme-site-logo img,
+header .elementor-widget-image img{
+  height:52px !important; width:auto !important; max-width:none !important;
+}
+@media(max-width:767px){
+  header .elementor-element-7ad430b img,
+  header .elementor-widget-theme-site-logo img,
+  header .elementor-widget-image img{ height:40px !important; }
+}
 header .sub-menu .elementor-sub-item,
 header .sub-menu .vamtam-nav-text{ color:#161616 !important; }
 
@@ -385,7 +394,7 @@ header .elementor-nav-menu > li.menu-item-has-children{ position:static !importa
 header ul.sub-menu.digi-mega{
   left:50% !important; right:auto !important;
   transform:translateX(-50%);
-  width:min(1180px, calc(100vw - 48px)) !important;
+  width:min(1260px, calc(100vw - 48px)) !important;
   max-width:none !important; min-width:0 !important;
   background:#ffffff !important;
   border:0 !important; border-radius:0 !important;
@@ -403,12 +412,12 @@ header ul.sub-menu.digi-mega *{ white-space:normal !important; }
 .digi-mega-inner{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr) 340px;
-  gap:34px 46px; padding:38px 44px 42px;
+  gap:40px 64px; padding:48px 56px 52px;
 }
 .digi-mega-grid{
   grid-column:1 / 3; min-width:0;
   display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:30px 46px;
+  gap:44px 64px;               /* roomier: clear separation between options */
   grid-auto-rows:1fr;          /* equal row heights -> even vertical rhythm */
   align-items:stretch;
 }
@@ -422,12 +431,12 @@ header ul.sub-menu.digi-mega *{ white-space:normal !important; }
 .digi-mega-item .d{ min-height:2.55em; }
 .digi-mega-item .t{
   display:block; color:#161616 !important; font-size:1.02rem; font-weight:600;
-  margin-bottom:6px; transition:color .2s ease;
+  margin-bottom:9px; transition:color .2s ease;
 }
 .digi-mega-item .d{ display:block; color:#63676d !important; font-size:.88rem; }
 .digi-mega-item:hover .t{ color:#FF9B00 !important; }
 /* featured card */
-.digi-mega-feature{ border-left:1px solid #ececec; padding-left:38px; }
+.digi-mega-feature{ border-left:1px solid #ececec; padding-left:52px; }
 .digi-mega-thumb{ display:block; overflow:hidden; background:#23262B; }
 .digi-mega-thumb img{ display:block; width:100%; height:180px; object-fit:cover; }
 .digi-mega-cap{
