@@ -177,6 +177,26 @@ body.digi-page header .elementor-button:hover .elementor-button-icon i,
 body.digi-page header .elementor-button:hover svg{ color:#ffffff !important; fill:#ffffff !important; }
 
 /* ============================================================
+   Home hero readability scrim.
+   The template's overlay only darkened one corner, so the white
+   slider text sat straight on the photo (bright patches made it
+   unreadable). Replace it with a charcoal left-to-right scrim so
+   the copy always reads and the hero looks intentional.
+   ============================================================ */
+.elementor-16 .elementor-element.elementor-element-0066be4 > .elementor-background-overlay{
+  background-color:transparent !important;
+  background-image:linear-gradient(90deg,
+      rgba(20,22,26,.88) 0%,
+      rgba(20,22,26,.76) 38%,
+      rgba(20,22,26,.34) 68%,
+      rgba(20,22,26,.14) 100%) !important;
+  opacity:1 !important;
+}
+/* keep the slider above the scrim */
+.elementor-16 .elementor-element.elementor-element-0066be4 .elementor-container{ position:relative; z-index:1; }
+.digi-slider{ position:relative; z-index:2; }
+
+/* ============================================================
    Home hero slider — mirrors digicomplish.com's rotating hero:
    three slides advance one by one, and within each slide the
    eyebrow → heading → button rise in, staggered.
@@ -337,6 +357,25 @@ body.digi-page header .elementor-button:hover svg{ color:#ffffff !important; fil
 }
 
 /* ============================================================
+   Sticky navbar — always pinned to the top.
+   The theme hides the fixed bar on scroll-down via
+   `.vamtam-sticky-header--fixed-hidden { transform:translateY(-100%) }`.
+   Neutralise that so the navbar genuinely sticks, and make sure it
+   always has a solid background + sits above page content.
+   ============================================================ */
+body:not(.elementor-editor-active) header .vamtam-sticky-header.vamtam-sticky-header--fixed-hidden,
+body:not(.elementor-editor-active) header .vamtam-sticky-header.vamtam-sticky-header--fixed{
+  transform:none !important;
+}
+header .vamtam-sticky-header.vamtam-sticky-header--fixed{
+  position:fixed !important; top:0 !important; left:0; right:0;
+  z-index:1000 !important;
+  box-shadow:0 6px 24px -14px rgba(0,0,0,.28);
+}
+/* the spacer keeps page content from sliding under the fixed bar */
+header .vamtam-sticky-header--spacer{ visibility:hidden; }
+
+/* ============================================================
    Solutions MEGA-MENU (hover) — wide panel with a 2-column item
    grid + a featured card, in the NLB-style layout.
    The theme's smartmenus script still handles show/hide; this only
@@ -368,12 +407,19 @@ header ul.sub-menu.digi-mega *{ white-space:normal !important; }
 }
 .digi-mega-grid{
   grid-column:1 / 3; min-width:0;
-  display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:30px 46px;
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:30px 46px;
+  grid-auto-rows:1fr;          /* equal row heights -> even vertical rhythm */
+  align-items:stretch;
 }
 .digi-mega-item{
   display:block; text-decoration:none !important; padding:0 !important;
   background:none !important; line-height:1.45;
+  align-self:start;            /* every item's text starts on the same baseline */
 }
+/* reserve two lines for every description so all cells match and the
+   columns line up instead of stepping unevenly */
+.digi-mega-item .d{ min-height:2.55em; }
 .digi-mega-item .t{
   display:block; color:#161616 !important; font-size:1.02rem; font-weight:600;
   margin-bottom:6px; transition:color .2s ease;
