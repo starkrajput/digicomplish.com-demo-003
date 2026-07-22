@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* ============================================================
+   Digicomplish — matches the Beratung template.
+   Home: transparent header (white logo + white nav) over the dark hero.
+   Inner pages (body.digi-page): SOLID white header (scrolls with the page,
+   no fixed bar) with the dark logo and #161616 nav text.
+   ============================================================ */
+
+/* ---------- Home (transparent header): white logo ---------- */
+header .vamtam-sticky-header--transparent-header .elementor-widget-image img{
+  filter:brightness(0) invert(1);
+  transition:filter .2s ease;
+}
+
+/* ---------- Inner pages: solid white header ---------- */
+/* Paint the header section itself white in EVERY state. The theme repaints
+   the sticky bar with --vamtam-sticky-header-bg-color (#2E3238, dark green)
+   once you scroll, which left dark nav text unreadable — force that variable
+   AND the fixed/scrolled variants back to white so the inner-page header
+   stays white with dark text top-to-bottom. */
+body.digi-page{ --vamtam-sticky-header-bg-color:#ffffff !important; }
+body.digi-page header .vamtam-sticky-header,
+body.digi-page header .vamtam-sticky-header--fixed,
+body.digi-page header .vamtam-sticky-header--fixed-shown,
+body.digi-page header .vamtam-sticky-header--transparent-header.vamtam-sticky-header--fixed{
+  background-color:#ffffff !important;
+}
+body.digi-page header .vamtam-sticky-header--spacer{ background-color:#ffffff !important; }
+/* Dark logo (real colours) */
+body.digi-page header .elementor-widget-image img{ filter:none !important; }
+/* Dark nav text / buttons / carets / toggle / icons — template colour */
+body.digi-page header .elementor-item,
+body.digi-page header .vamtam-nav-text,
+body.digi-page header .vamtam-btn-text,
+body.digi-page header .sub-arrow,
+body.digi-page header .elementor-menu-toggle,
+body.digi-page header .elementor-icon i{ color:#161616 !important; }
+body.digi-page header .elementor-icon svg{ fill:#161616 !important; }
+/* logo size + readable dropdown items */
+header .elementor-element-7ad430b img{ height:34px !important; width:auto !important; }
+header .sub-menu .elementor-sub-item,
+header .sub-menu .vamtam-nav-text{ color:#161616 !important; }
+
+/* ---------- Inner-page banner — matches the Beratung template hero
+     (element bb67810): a full-width section with a background image +
+     dark overlay, the content aligned toward the BOTTOM, an icon-list
+     eyebrow (brand-symbol glyph + label) and a large plain H1.
+     No green pill / no white heading box. ---------- */
+.digi-hero{
+  position:relative !important; overflow:hidden !important;
+  background:linear-gradient(180deg,rgba(26,28,32,.58) 0%,rgba(26,28,32,.86) 100%),
+             url('/wp-content/uploads/2023/06/GettyImages-1185765407.jpg') center/cover no-repeat !important;
+  min-height:0 !important;
+  display:block !important;
+  padding:66px 0 60px !important;   /* tighter — removes the big empty gap above the content */
+}
+.digi-hero::before, .digi-hero::after{ content:none !important; }   /* drop the old green triangles */
+.digi-hero .digi-wrap{ position:relative; z-index:1; width:100%; }
+.digi-hero .digi-crumbs{ color:#c3ccc6 !important; margin-bottom:16px !important; }
+.digi-hero .digi-crumbs a{ color:#e3e9e5 !important; }
+.digi-hero .digi-crumbs a:hover{ color:#FF9B00 !important; }
+/* Eyebrow removed per request (the icon glyph rendered as a stray “✕”). */
+.digi-hero .eyebrow{ display:none !important; }
+.digi-hero h1{
+  color:#ffffff !important; font-weight:400; letter-spacing:-.02em;
+  background:none !important; display:block !important;
+  padding:0 !important; margin:0 !important; max-width:18ch;
+  font-size:clamp(2.4rem,4.6vw,4rem) !important; line-height:1.06 !important;
+}
+.digi-hero p{ color:#cdd4cf !important; margin-top:22px !important; max-width:56ch; }
+
+/* ---------- Buttons: clearly visible (template colours) ---------- */
+.digi-btn{
+  background:#161616 !important; color:#ffffff !important; border:1px solid #161616 !important;
+}
+.digi-btn:hover{ background:#FF9B00 !important; border-color:#FF9B00 !important; color:#ffffff !important; }
+.digi-btn.light{ background:#ffffff !important; color:#161616 !important; border-color:#ffffff !important; }
+.digi-btn.light:hover{ background:#161616 !important; color:#ffffff !important; border-color:#161616 !important; }
+.digi-card a[href]:not(.digi-btn){ color:#161616 !important; }
+
+@media(max-width:960px){
+  .digi-hero{ min-height:360px !important; padding:130px 0 48px !important; }
+  .digi-hero h1{ max-width:100% !important; }
+}
+
+/* ============================================================
+   Client requirement: Montserrat everywhere (text only — icon
+   fonts are left untouched so glyphs keep rendering).
+   Setting the family on <body> makes every span/div/p inherit
+   Montserrat automatically; elements that hard-code Geologica
+   are overridden explicitly below.
+   ============================================================ */
+body,
+h1, h2, h3, h4, h5, h6,
+p, a, li, ul, ol, blockquote, label, small, strong, b, em,
+button, input, textarea, select, table, th, td,
+.elementor-heading-title,
+.elementor-button, .elementor-button-text,
+.elementor-widget-text-editor, .elementor-widget-text-editor *,
+.elementor-widget-container,
+.elementor-item, .elementor-sub-item,
+.vamtam-nav-text, .vamtam-btn-text,
+.digi-hero h1, .digi-hero p, .digi-hero .eyebrow,
+.digi-card, .digi-card *{
+  font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+/* Never override the icon fonts (Font Awesome / eicons / theme icons / icomoon) */
+i[class*="eicon"], i[class*="fa-"], .fa, .fas, .far, .fab, .fal,
+[class^="vamtam-theme-icon"], [class*=" vamtam-theme-icon"],
+.elementor-icon i, .elementor-icon svg, .sub-arrow:before,
+[class*="icon-"]:before, .elementor-item:after, .elementor-item:before{
+  font-family:revert;
+}
+
+/* ============================================================
+   Navbar accent state — driven ONLY by digi-brand.js, which adds
+   the .nav-on-accent class to a header bar when it detects the bar
+   has actually turned green. When it is NOT green, nothing here
+   applies and the header keeps its original colours untouched.
+   ============================================================ */
+.vamtam-sticky-header.nav-on-accent .elementor-item,
+.vamtam-sticky-header.nav-on-accent .vamtam-nav-text,
+.vamtam-sticky-header.nav-on-accent .vamtam-btn-text,
+.vamtam-sticky-header.nav-on-accent .elementor-button,
+.vamtam-sticky-header.nav-on-accent .elementor-button-text,
+.vamtam-sticky-header.nav-on-accent .sub-arrow,
+.vamtam-sticky-header.nav-on-accent .elementor-menu-toggle,
+.vamtam-sticky-header.nav-on-accent .elementor-icon i{
+  color:#ffffff !important;
+}
+.vamtam-sticky-header.nav-on-accent .elementor-icon svg{ fill:#ffffff !important; }
+
+/* Any button digi-brand.js has detected as accent-backgrounded gets white text.
+   (The theme's default is dark text on the green hover fill — client wants white.)
+   Applied per-element so transparent / underline buttons are never touched. */
+.elementor-button.btn-on-accent,
+.elementor-button.btn-on-accent .elementor-button-text,
+.elementor-button.btn-on-accent .vamtam-btn-text,
+.elementor-button.btn-on-accent *{ color:#ffffff !important; }
+.elementor-button.btn-on-accent svg{ fill:#ffffff !important; }
+
+/* ============================================================
+   Header fix (matches reference image 1): on the SOLID white
+   inner-page header the "Contact us" CTA must be a visible dark
+   OUTLINED button — the default white border/white text made it
+   invisible on the white bar (image 2). Home (transparent
+   header over the dark hero) keeps the white outlined button.
+   ============================================================ */
+body.digi-page header .elementor-button,
+body.digi-page header .vamtam-sticky-header--transparent-header .elementor-button{
+  position:relative !important;
+  background:transparent !important;
+  color:#161616 !important;
+  transition:background-color .2s ease, color .2s ease;
+}
+/* Dark text on the white inner-page header */
+body.digi-page header .elementor-button .elementor-button-text,
+body.digi-page header .vamtam-sticky-header--transparent-header .elementor-button .elementor-button-text{
+  color:#161616 !important; position:relative; z-index:1;
+}
+/* Outline drawn as a pseudo-element — the theme's sticky script rewrites the
+   button's own border/box-shadow, but it cannot touch ::after. */
+body.digi-page header .elementor-button::after{
+  content:"" !important; position:absolute !important; inset:0 !important;
+  border:1px solid #161616 !important; border-radius:inherit;
+  pointer-events:none !important; z-index:0; transition:background-color .2s ease;
+}
+/* Hover: fill dark, ALL text/icons white (covers the phone button, whose
+   label is not wrapped in .elementor-button-text and was going dark-on-dark) */
+body.digi-page header .elementor-button:hover::after{ background:#161616 !important; }
+body.digi-page header .elementor-button:hover,
+body.digi-page header .elementor-button:hover .elementor-button-text,
+body.digi-page header .elementor-button:hover .vamtam-btn-text,
+body.digi-page header .elementor-button:hover *{ color:#ffffff !important; }
+body.digi-page header .elementor-button:hover .elementor-button-icon i,
+body.digi-page header .elementor-button:hover svg{ color:#ffffff !important; fill:#ffffff !important; }
+
+/* ============================================================
+   Home hero slider — mirrors digicomplish.com's rotating hero:
+   three slides advance one by one, and within each slide the
+   eyebrow → heading → button rise in, staggered.
+   ============================================================ */
+.digi-slider{ position:relative; }
+.digi-slide{
+  position:absolute; left:0; top:0; right:0;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .6s ease, visibility .6s;
+}
+.digi-slide.is-active{
+  position:relative; opacity:1; visibility:visible; pointer-events:auto;
+}
+.digi-slide-eyebrow{
+  display:inline-flex; align-items:center; gap:12px;
+  color:#FF9B00; font-size:.82rem; letter-spacing:.16em;
+  text-transform:uppercase; font-weight:500; margin:0 0 18px;
+}
+.digi-slide-eyebrow::before{
+  content:""; display:inline-block; width:28px; height:2px; background:#FF9B00;
+}
+.digi-slide-title{
+  /* !important — the theme's `.elementor-kit-5 h1` rule outranks a single class
+     and would otherwise paint this dark on the dark hero */
+  color:#ffffff !important; font-weight:400; letter-spacing:-.02em; margin:0 0 28px;
+  font-size:clamp(2.1rem,4.4vw,3.7rem); line-height:1.09; max-width:20ch;
+}
+.digi-slide-eyebrow{ color:#FF9B00 !important; }
+.digi-slide-btn{
+  display:inline-block; padding:16px 34px; border:1px solid #ffffff;
+  color:#ffffff !important; text-decoration:none; font-size:.95rem;
+  transition:background-color .25s ease, border-color .25s ease;
+}
+.digi-slide-btn:hover{ background:#FF9B00; border-color:#FF9B00; color:#ffffff !important; }
+/* staggered "one by one" entrance */
+.digi-slide.is-active .digi-slide-eyebrow{ animation:digiRise .6s .05s both; }
+.digi-slide.is-active .digi-slide-title  { animation:digiRise .6s .22s both; }
+.digi-slide.is-active .digi-slide-btn    { animation:digiRise .6s .40s both; }
+@keyframes digiRise{ from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:none; } }
+.digi-slider-dots{ display:flex; gap:10px; margin-top:36px; }
+.digi-slider-dots button{
+  width:30px; height:3px; padding:0; border:0; cursor:pointer;
+  background:rgba(255,255,255,.35); transition:background-color .25s ease;
+}
+.digi-slider-dots button.is-active{ background:#FF9B00; }
+@media(max-width:767px){
+  .digi-slide-title{ max-width:100%; }
+  .digi-slide-btn{ padding:14px 26px; }
+}
+
+/* ============================================================
+   Home "Solutions / Our Expertise / Career" trio — same content
+   as digicomplish.com, rendered in OUR site's design language
+   (white cards, brand-green accents, dark headings).
+   ============================================================ */
+.digi-trio-section{ padding:0 0 96px; }
+/* The Elementor container is display:flex, so the grid would otherwise be a
+   flex item sized to its content and sit flush left. Make it fill the
+   container and share the same 30px side padding as the rest of the page
+   so the cards line up with the headings above them. */
+.digi-trio-section > .elementor-container{ margin-left:auto; margin-right:auto; }
+.digi-trio{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:30px;
+  flex:1 1 100%; width:100%; box-sizing:border-box;
+  margin-left:auto; margin-right:auto;
+}
+/* Above the 1280px container width the theme's content sits flush with the
+   container edge; below it the content is inset 30px. Mirror that exactly so
+   the cards always line up with the headings above them. */
+@media(max-width:1280px){
+  .digi-trio{ padding-left:30px; padding-right:30px; }
+}
+.digi-trio-card{
+  display:flex; flex-direction:column; background:#ffffff;
+  border:1px solid rgba(0,0,0,.09); text-decoration:none !important;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.digi-trio-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.22);
+  border-color:#FF9B00;
+}
+.digi-trio-head{ display:block; padding:26px 24px 20px; text-align:center; }
+.digi-trio-eyebrow{
+  display:block; color:#FF9B00 !important; font-size:.76rem; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; margin-bottom:10px;
+}
+.digi-trio-title{
+  display:block; color:#161616 !important; font-size:1.35rem;
+  font-weight:500; line-height:1.25;
+}
+.digi-trio-media{ display:block; overflow:hidden; }
+.digi-trio-media img{
+  display:block; width:100%; height:210px; object-fit:cover;
+  transition:transform .5s ease;
+}
+.digi-trio-card:hover .digi-trio-media img{ transform:scale(1.05); }
+.digi-trio-link{
+  display:block; padding:20px 24px 24px; text-align:center;
+  color:#161616 !important; font-weight:600; font-size:.95rem;
+  position:relative;
+}
+.digi-trio-link::after{
+  content:""; display:block; width:28px; height:2px; background:#FF9B00;
+  margin:9px auto 0; transition:width .25s ease;
+}
+.digi-trio-card:hover .digi-trio-link::after{ width:64px; }
+@media(max-width:1024px){ .digi-trio{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:767px){
+  .digi-trio{ grid-template-columns:1fr; gap:22px; }
+  .digi-trio-section{ padding-bottom:64px; }
+  .digi-trio-media img{ height:190px; }
+}
+
+/* ============================================================
+   Tinted content boxes (Talent Fulfillment page) — soft brand
+   tint instead of plain white, matching the reference design.
+   ============================================================ */
+.digi-tint .digi-card{
+  background:#FDE3C4 !important;
+  border:1px solid rgba(255,155,0,.30) !important;
+  border-radius:10px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.digi-tint .digi-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 26px 52px -32px rgba(150,90,0,.35);
+  border-color:rgba(255,155,0,.65) !important;
+}
+.digi-tint .digi-card h3{ color:#161616 !important; }
+.digi-tint .digi-card p{ color:#4a4033 !important; }
+.digi-tint .digi-card .num{ color:#F08A00 !important; }
+
+/* ============================================================
+   Home "Build the Next Phase of Enterprise Capability" band —
+   supporting copy + the two CTAs, matching the reference image
+   (solid orange primary, solid white secondary on the dark band).
+   ============================================================ */
+.digi-cta-extra{ margin-top:18px; }
+.digi-cta-lead{
+  color:#e8ecf2 !important; margin:0 0 28px; max-width:62ch;
+  font-size:1.02rem; line-height:1.62;
+}
+.digi-cta-actions{ display:flex; flex-wrap:wrap; gap:18px; }
+.digi-cta-btn{
+  display:inline-block; padding:17px 34px; text-decoration:none !important;
+  font-weight:600; font-size:.98rem; line-height:1; border:1px solid transparent;
+  transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .2s ease;
+}
+.digi-cta-btn.primary{ background:#F5A000; color:#ffffff !important; border-color:#F5A000; }
+.digi-cta-btn.primary:hover{ background:#d98c00; border-color:#d98c00; color:#ffffff !important; transform:translateY(-2px); }
+.digi-cta-btn.light{ background:#ffffff; color:#161616 !important; border-color:#ffffff; }
+.digi-cta-btn.light:hover{ background:transparent; color:#ffffff !important; border-color:#ffffff; transform:translateY(-2px); }
+@media(max-width:767px){
+  .digi-cta-actions{ gap:12px; }
+  .digi-cta-btn{ padding:15px 24px; font-size:.92rem; }
+  .digi-cta-lead{ font-size:.98rem; }
+}
+
+/* ============================================================
+   Solutions MEGA-MENU (hover) — wide panel with a 2-column item
+   grid + a featured card, in the NLB-style layout.
+   The theme's smartmenus script still handles show/hide; this only
+   restyles the panel, so the existing open/close behaviour is kept.
+   ============================================================ */
+header .elementor-nav-menu > li.menu-item-has-children{ position:static !important; }
+header ul.sub-menu.digi-mega{
+  left:50% !important; right:auto !important;
+  transform:translateX(-50%);
+  width:min(1180px, calc(100vw - 48px)) !important;
+  max-width:none !important; min-width:0 !important;
+  background:#ffffff !important;
+  border:0 !important; border-radius:0 !important;
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.28) !important;
+  padding:0 !important; margin-top:0 !important;
+}
+header ul.sub-menu.digi-mega > li.digi-mega-li{
+  display:block !important; width:100% !important; background:none !important;
+}
+/* The theme's sub-menu CSS sets white-space:nowrap, which makes each item's
+   min-content enormous and blows the 1fr tracks far past the panel width —
+   force normal wrapping and use minmax(0,1fr) so tracks can actually shrink. */
+header ul.sub-menu.digi-mega,
+header ul.sub-menu.digi-mega *{ white-space:normal !important; }
+.digi-mega-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) 340px;
+  gap:34px 46px; padding:38px 44px 42px;
+}
+.digi-mega-grid{
+  grid-column:1 / 3; min-width:0;
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:30px 46px;
+}
+.digi-mega-item{
+  display:block; text-decoration:none !important; padding:0 !important;
+  background:none !important; line-height:1.45;
+}
+.digi-mega-item .t{
+  display:block; color:#161616 !important; font-size:1.02rem; font-weight:600;
+  margin-bottom:6px; transition:color .2s ease;
+}
+.digi-mega-item .d{ display:block; color:#63676d !important; font-size:.88rem; }
+.digi-mega-item:hover .t{ color:#FF9B00 !important; }
+/* featured card */
+.digi-mega-feature{ border-left:1px solid #ececec; padding-left:38px; }
+.digi-mega-thumb{ display:block; overflow:hidden; background:#23262B; }
+.digi-mega-thumb img{ display:block; width:100%; height:180px; object-fit:cover; }
+.digi-mega-cap{
+  color:#161616 !important; font-size:.98rem; font-weight:600;
+  line-height:1.45; margin:18px 0 20px;
+}
+.digi-mega-link{
+  display:inline-flex; align-items:center; gap:12px;
+  color:#161616 !important; font-weight:600; font-size:.94rem;
+  text-decoration:none !important;
+}
+.digi-mega-link .arw{
+  width:36px; height:36px; border-radius:50%; background:#FF9B00; color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:transform .2s ease;
+}
+.digi-mega-link:hover .arw{ transform:translateX(4px); }
+/* stack on tablet / mobile where the menu becomes a drawer */
+@media(max-width:1024px){
+  header ul.sub-menu.digi-mega{
+    left:0 !important; transform:none; width:100% !important;
+    box-shadow:none !important;
+  }
+  .digi-mega-inner{ grid-template-columns:1fr; gap:22px; padding:18px 20px 24px; }
+  .digi-mega-grid{ grid-column:auto; grid-template-columns:1fr; gap:18px; }
+  .digi-mega-feature{ border-left:0; padding-left:0; border-top:1px solid #ececec; padding-top:20px; }
+  .digi-mega-thumb img{ height:150px; }
+}
+
+/* ============================================================
+   Home: stats band + trio cards (self-contained so they work on
+   the Elementor home template, which has no .digi-wrap styles).
+   Charcoal band + orange accents.
+   ============================================================ */
+.digi-band-wrap{ width:100%; max-width:1280px; margin:0 auto; padding:0 30px; box-sizing:border-box; }
+.digi-statband{ background:#23262B; padding:66px 0; }
+.digi-statgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.digi-statitem{ text-align:center; }
+.digi-statitem .digi-count{
+  color:#FF9B00 !important; font-weight:600; line-height:1;
+  font-size:clamp(2.6rem,5vw,3.9rem); letter-spacing:-.02em;
+}
+.digi-statlbl{
+  color:#d6d9de; margin-top:12px; font-size:.82rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; line-height:1.5;
+}
+.digi-triowrap{ padding:84px 0 96px; background:#ffffff; }
+@media(max-width:1024px){ .digi-statgrid{ grid-template-columns:1fr; gap:38px; } }
+@media(max-width:767px){
+  .digi-statband{ padding:52px 0; }
+  .digi-triowrap{ padding:58px 0 64px; }
+  .digi-band-wrap{ padding:0 20px; }
+}
+
+/* ============================================================
+   Legal pages (Privacy Policy / Terms of Use) — readable measure
+   and clear section rhythm.
+   ============================================================ */
+.digi-legal{ max-width:860px; }
+.digi-legal .digi-lead{ margin-bottom:34px; }
+.digi-legal h2{
+  font-size:clamp(1.25rem,2.2vw,1.6rem); font-weight:500; line-height:1.25;
+  margin:38px 0 12px; color:#161616;
+}
+.digi-legal h2:first-of-type{ margin-top:0; }
+.digi-legal p{ color:#3b3f3b; line-height:1.75; margin:0 0 14px; }
+.digi-legal a{ color:#161616; border-bottom:1px solid #FF9B00; }
+.digi-legal a:hover{ color:#FF9B00; }
+.digi-legal .digi-list{ margin:6px 0 14px; }
+.digi-legal .digi-list li{ margin-bottom:9px; line-height:1.6; }
+
+/* ============================================================
+   Contact page — "Find us" map band, sitting ABOVE the form.
+   Dark world-map backdrop with the live Google map floating on
+   top as a rounded, shadowed card + an address plate.
+   ============================================================ */
+.digi-mapband{
+  position:relative; overflow:hidden;
+  background:#0d0f12 url('/worldmap-bg.jpg') center/cover no-repeat;
+  padding:84px 0 90px;
+}
+.digi-mapband::before{           /* darken + tint so the card pops */
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(10,12,15,.82) 0%,rgba(10,12,15,.90) 100%);
+}
+.digi-mapband .digi-wrap{ position:relative; z-index:1; }
+.digi-mapband-head{ text-align:center; margin-bottom:38px; }
+.digi-mapband-head .digi-eyebrow{ color:#FF9B00 !important; }
+.digi-mapband-head h2{
+  color:#ffffff !important; margin:10px 0 0; font-weight:400;
+  font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.12;
+}
+.digi-map-frame{
+  position:relative; border-radius:16px; overflow:hidden;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.09);
+}
+.digi-map-frame iframe{
+  width:100%; height:480px; border:0; display:block;
+  filter:grayscale(.25) contrast(1.03);
+}
+/* floating address plate */
+.digi-map-card{
+  position:absolute; left:28px; bottom:28px; z-index:2;
+  background:#ffffff; border-radius:12px; padding:22px 24px; max-width:330px;
+  box-shadow:0 24px 50px -26px rgba(0,0,0,.55);
+  display:flex; flex-direction:column; gap:6px;
+}
+.digi-map-card-eyebrow{
+  color:#FF9B00; font-size:.72rem; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase;
+}
+.digi-map-card strong{ color:#161616; font-size:1.06rem; font-weight:600; }
+.digi-map-card-addr{ color:#5f635e; font-size:.92rem; line-height:1.55; }
+.digi-map-card-link{
+  margin-top:8px; color:#161616 !important; font-weight:600; font-size:.9rem;
+  text-decoration:none !important; align-self:flex-start;
+  border-bottom:2px solid #FF9B00; padding-bottom:2px; transition:color .2s ease;
+}
+.digi-map-card-link:hover{ color:#FF9B00 !important; }
+@media(max-width:960px){
+  .digi-mapband{ padding:60px 0 64px; }
+  .digi-map-frame iframe{ height:380px; }
+  .digi-map-card{ left:16px; right:16px; bottom:16px; max-width:none; padding:18px 20px; }
+}
