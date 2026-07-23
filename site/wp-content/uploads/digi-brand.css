@@ -793,3 +793,16 @@ header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
   .dc-panel:hover, .dc-panel:focus-visible{ height:280px; flex-grow:0; }
   .dc-panel p{ font-size:.98rem !important; }
 }
+
+/* ================================================================
+   Hero video backgrounds — one clip per slide, advancing on the
+   video's own length (JS-synced). Only the active clip plays.
+   ================================================================ */
+.digi-hero-videos{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.digi-hero-vid{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .7s ease; }
+.digi-hero-vid.is-active{ opacity:1; }
+.digi-slide-dur{ display:inline-block; margin-left:16px; color:#fff; font-size:.92rem; font-weight:600; letter-spacing:.03em; opacity:.9; vertical-align:middle; }
+.digi-slide-dur::before{ content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--dc-orange-100); margin-right:8px; vertical-align:middle; animation:dcPulse 1.6s ease-in-out infinite; }
+@keyframes dcPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.5); opacity:.5; } }
+.digi-slider-progress{ position:relative; height:3px; max-width:340px; margin-top:24px; background:rgba(255,255,255,.24); border-radius:2px; overflow:hidden; }
+.digi-slider-progress > span{ position:absolute; left:0; top:0; height:100%; width:0; background:var(--dc-orange-100); }
