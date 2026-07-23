@@ -659,3 +659,59 @@ header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
   .dc-2,.dc-4{ grid-template-columns:1fr; }
   .dc-stats-strip{ grid-template-columns:1fr; gap:24px; padding:38px 26px; }
 }
+
+/* ================================================================
+   Readability pass 2 — larger, slightly heavier, higher-contrast
+   body/card copy across the home components + new capability grid.
+   ================================================================ */
+/* Trio cards */
+.digi-trio-eyebrow{ font-size:.86rem !important; font-weight:700 !important; letter-spacing:.14em !important; }
+.digi-trio-title{ font-size:1.5rem !important; font-weight:600 !important; line-height:1.28 !important; }
+.digi-trio-link{ font-size:1.06rem !important; font-weight:600 !important; }
+
+/* Story cards / approach / why / case — bigger & darker for visibility */
+.dc-card .dc-card-title{ font-size:1.32rem !important; font-weight:600 !important; }
+.dc-card p{ font-size:1.08rem !important; color:#3f4345 !important; line-height:1.7 !important; }
+.dc-item h3{ font-size:1.24rem !important; font-weight:700 !important; }
+.dc-item p{ font-size:1.06rem !important; color:#3f4345 !important; line-height:1.68 !important; }
+.dc-icard .dc-icard-title{ font-size:1.18rem !important; font-weight:600 !important; }
+.dc-icard p, .dc-body-sm{ font-size:1.02rem !important; font-weight:400 !important; color:#44484a !important; line-height:1.65 !important; }
+.dc-head p{ font-size:1.2rem !important; color:#44484a !important; }
+.dc-badge{ font-size:1.4rem !important; }
+.dc-stat .l{ font-size:1rem !important; font-weight:600 !important; }
+
+/* Home elementor body copy (values, success-story excerpts) — nudge up */
+.elementor-16 .elementor-widget-text-editor{ font-size:1.06rem !important; font-weight:400 !important; color:#44484a !important; line-height:1.66 !important; }
+.elementor-16 h6.elementor-heading-title{ font-size:1.24rem !important; font-weight:600 !important; }
+.elementor-16 .elementor-icon-list-text{ font-size:1.06rem !important; }
+
+/* ================================================================
+   NLB-style capability grid — 3x3 dark cards, orange icon + arrow.
+   ================================================================ */
+.dc-caps{ background:#14161A; color:#fff; padding:88px 0; }
+.dc-caps .dc-head h2{ color:#fff; }
+.dc-caps .dc-head h2 b{ color:var(--dc-orange-100); }
+.dc-caps .dc-head p{ color:#c4c8cf !important; }
+.dc-caps .dc-eyebrow{ color:var(--dc-orange-100) !important; }
+.dc-caps-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.dc-cap{
+  position:relative; display:block; text-decoration:none !important;
+  background:#1D2026; border:1px solid #2b2f37; border-radius:16px;
+  padding:30px 28px 26px; transition:transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.dc-cap:hover{ transform:translateY(-6px); border-color:var(--dc-orange-200); background:#22262e; }
+.dc-cap-ico{
+  width:56px; height:56px; border-radius:14px; display:grid; place-items:center;
+  background:var(--dc-grad); margin-bottom:20px;
+}
+.dc-cap-ico svg{ width:28px; height:28px; stroke:#fff; fill:none; stroke-width:1.8; }
+.dc-cap h3{ color:#fff !important; font-size:1.22rem !important; font-weight:600 !important; margin:0 0 10px; line-height:1.3; }
+.dc-cap p{ color:#aeb4bd !important; font-size:1rem !important; line-height:1.6; margin:0 0 20px; }
+.dc-cap-arw{
+  width:40px; height:40px; border-radius:50%; border:1px solid #3a3f48;
+  display:grid; place-items:center; color:#fff; transition:background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.dc-cap-arw svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; }
+.dc-cap:hover .dc-cap-arw{ background:var(--dc-orange-200); border-color:var(--dc-orange-200); transform:translateX(4px); }
+@media(max-width:1024px){ .dc-caps-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:767px){ .dc-caps{ padding:58px 0; } .dc-caps-grid{ grid-template-columns:1fr; } }
