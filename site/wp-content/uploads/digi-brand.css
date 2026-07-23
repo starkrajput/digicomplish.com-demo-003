@@ -431,9 +431,9 @@ header ul.sub-menu.digi-mega *{ white-space:normal !important; }
 .digi-mega-item .d{ min-height:2.55em; }
 .digi-mega-item .t{
   display:block; color:#161616 !important; font-size:1.02rem; font-weight:600;
-  margin-bottom:9px; transition:color .2s ease;
+  margin-bottom:9px; font-size:1.06rem; transition:color .2s ease;
 }
-.digi-mega-item .d{ display:block; color:#63676d !important; font-size:.88rem; }
+.digi-mega-item .d{ display:block; color:#5c6067 !important; font-size:.95rem; line-height:1.5; }
 .digi-mega-item:hover .t{ color:#FF9B00 !important; }
 /* featured card */
 .digi-mega-feature{ border-left:1px solid #ececec; padding-left:52px; }
@@ -591,18 +591,18 @@ body.digi-page header .elementor-element-64661e4 .elementor-button:hover .elemen
 /* ---------- Typography scale (Montserrat, NLB metrics) ---------- */
 .digi-eyebrow, .digi-slide-eyebrow, .digi-trio-eyebrow, .dc-eyebrow{
   font-weight:600 !important; font-size:12px !important; line-height:1.2 !important;
-  letter-spacing:.08em !important; text-transform:uppercase !important;
+  letter-spacing:.08em !important; text-transform:uppercase !important; font-size:12.5px !important;
 }
 .dc-story h2, .digi-statband + * h2, .dc-h2{
   font-weight:700 !important; line-height:1.15 !important;
   font-size:clamp(32px,4.4vw,48px) !important;
 }
 .dc-card-title{ font-weight:500 !important; font-size:clamp(21px,2vw,26px) !important; line-height:1.4 !important; }
-.dc-icard-title{ font-weight:600 !important; font-size:clamp(16px,1.5vw,18px) !important; line-height:1.2 !important; }
-.dc-body-sm{ font-weight:300 !important; font-size:clamp(13px,1vw,14px) !important; line-height:1.55 !important; letter-spacing:.36px; }
-.dc-story p{ font-weight:400; font-size:16px; line-height:1.6; }
+.dc-icard-title{ font-weight:600 !important; font-size:clamp(17px,1.6vw,19px) !important; line-height:1.25 !important; }
+.dc-body-sm{ font-weight:400 !important; font-size:clamp(14px,1.1vw,15px) !important; line-height:1.62 !important; letter-spacing:.2px; }
+.dc-story p{ font-weight:400; font-size:16.5px; line-height:1.62; }
 header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
-  font-weight:500 !important; font-size:14px !important; letter-spacing:.02em !important;
+  font-weight:600 !important; font-size:15.5px !important; letter-spacing:.01em !important;
 }
 
 /* ---------- Story sections ---------- */
@@ -614,7 +614,7 @@ header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
 .dc-head .dc-eyebrow{ display:inline-block; color:var(--dc-orange-300); margin-bottom:14px; }
 .dc-head h2{ margin:0 0 14px; color:var(--dc-text); }
 .dc-head h2 b{ color:var(--dc-orange-400); font-weight:700; }
-.dc-head p{ color:#5f635e; margin:0; font-size:1.05rem; }
+.dc-head p{ color:#54585a; margin:0; font-size:1.12rem; line-height:1.6; }
 .dc-bar{ display:block; width:46px; height:4px; background:var(--dc-grad); border-radius:3px; margin:0 auto 22px; }
 
 .dc-grid{ display:grid; gap:28px; }
@@ -628,7 +628,7 @@ header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
 .dc-ico{ width:60px; height:60px; border-radius:50%; display:grid; place-items:center; background:var(--dc-orange-100); margin-bottom:20px; }
 .dc-ico svg{ width:30px; height:30px; stroke:#fff; fill:none; stroke-width:1.8; }
 .dc-card .dc-card-title{ margin:0 0 10px; color:var(--dc-text); }
-.dc-card p{ margin:0; color:#5f635e; font-size:.96rem; line-height:1.65; }
+.dc-card p{ margin:0; color:#54585a; font-size:1.02rem; line-height:1.68; }
 
 /* Why-Us numbered 4-color pattern */
 .dc-why{ counter-reset:dcwhy; }
@@ -638,8 +638,8 @@ header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
 .dc-why .dc-item:nth-child(2) .dc-badge{ background:var(--dc-orange-200); }
 .dc-why .dc-item:nth-child(3) .dc-badge{ background:var(--dc-orange-300); }
 .dc-why .dc-item:nth-child(4) .dc-badge{ background:var(--dc-orange-400); }
-.dc-item h3{ font-weight:600; font-size:1.12rem; margin:0 0 10px; color:var(--dc-text); }
-.dc-item p{ margin:0; color:#5f635e; font-size:.95rem; line-height:1.6; }
+.dc-item h3{ font-weight:600; font-size:1.2rem; margin:0 0 10px; color:var(--dc-text); }
+.dc-item p{ margin:0; color:#54585a; font-size:1.02rem; line-height:1.62; }
 
 /* Icon-grid component (outline icons) */
 .dc-icard{ text-align:left; padding:26px 24px; border:1px solid #efe7dd; border-radius:14px; background:#fff; transition:border-color .25s ease, transform .25s ease; }
