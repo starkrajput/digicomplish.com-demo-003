@@ -715,3 +715,81 @@ header .elementor-item, header .vamtam-nav-text, header .vamtam-btn-text{
 .dc-cap:hover .dc-cap-arw{ background:var(--dc-orange-200); border-color:var(--dc-orange-200); transform:translateX(4px); }
 @media(max-width:1024px){ .dc-caps-grid{ grid-template-columns:repeat(2,1fr); } }
 @media(max-width:767px){ .dc-caps{ padding:58px 0; } .dc-caps-grid{ grid-template-columns:1fr; } }
+
+/* ================================================================
+   Expertise / story text — bigger & bolder for readability
+   ================================================================ */
+.elementor-16 .elementor-icon-box-description{
+  font-size:1.12rem !important; font-weight:400 !important; color:#3c4042 !important; line-height:1.72 !important;
+}
+.elementor-16 .elementor-icon-box-title, .elementor-16 .elementor-icon-box-title a{
+  font-size:1.35rem !important; font-weight:600 !important; color:#1f2224 !important;
+}
+.elementor-16 .elementor-widget-text-editor{
+  font-size:1.16rem !important; font-weight:500 !important; color:#33373a !important; line-height:1.72 !important;
+}
+.dc-card p, .dc-item p{ font-weight:400 !important; }
+.dc-card .dc-card-title{ font-weight:700 !important; }
+
+/* ================================================================
+   "Empowering Enterprises" — 6 expanding glass panels.
+   Reversed reveal: each panel shows its frosted-glass card by
+   default; on hover the panel EXPANDS, the glass clears to the
+   full vivid image, and the title rises in. Neighbours contract.
+   Whole section sits on a fixed background image behind glass.
+   ================================================================ */
+.dc-exp{ position:relative; overflow:hidden; padding:88px 0; background:#0f1114; }
+.dc-exp-bg{ position:absolute; inset:0; background:url('/wp-content/uploads/2023/07/GettyImages-1277288373.jpg') center/cover no-repeat; opacity:.22; }
+.dc-exp-bg::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(15,17,20,.78),rgba(15,17,20,.92)); }
+.dc-exp .dc-wrap{ position:relative; z-index:1; }
+.dc-exp .dc-head h2{ color:#fff; } .dc-exp .dc-head h2 b{ color:var(--dc-orange-100); }
+.dc-exp .dc-head p{ color:#c6cad1 !important; } .dc-exp .dc-eyebrow{ color:var(--dc-orange-100) !important; }
+
+.dc-exp-row{ display:flex; gap:16px; height:460px; }
+.dc-panel{
+  position:relative; flex:1 1 0; min-width:0; border-radius:16px; overflow:hidden;
+  cursor:pointer; text-decoration:none !important; isolation:isolate;
+  transition:flex-grow .6s cubic-bezier(.4,.08,.2,1);
+  box-shadow:0 24px 50px -26px rgba(0,0,0,.7);
+}
+.dc-panel img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  filter:grayscale(.35) brightness(.6);
+  transition:transform .8s cubic-bezier(.4,.08,.2,1), filter .6s ease;
+}
+/* frosted glass — visible by default, clears on hover (the "reverse") */
+.dc-glass{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg,rgba(20,22,28,.30) 0%,rgba(20,22,28,.82) 100%);
+  -webkit-backdrop-filter:blur(4px) saturate(1.1); backdrop-filter:blur(4px) saturate(1.1);
+  transition:opacity .55s ease, backdrop-filter .55s ease;
+}
+.dc-panel-in{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:flex-end; padding:26px 24px; }
+.dc-panel-ico{ width:48px; height:48px; border-radius:12px; display:grid; place-items:center; background:var(--dc-grad); margin-bottom:auto; }
+.dc-panel-ico svg{ width:24px; height:24px; stroke:#fff; fill:none; stroke-width:1.9; }
+.dc-panel h3{
+  color:#fff !important; font-weight:700 !important; margin:0; line-height:1.2;
+  font-size:1.28rem !important; letter-spacing:-.01em;
+}
+.dc-panel p{
+  color:#dfe3e9 !important; margin:12px 0 0; font-size:1.02rem !important; line-height:1.55;
+  max-height:0; opacity:0; overflow:hidden;
+  transition:max-height .5s ease, opacity .45s ease, margin .5s ease;
+}
+.dc-panel .dc-panel-badge{ display:block; color:var(--dc-orange-100); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; opacity:.9; }
+
+/* expanded state (hover / focus) */
+.dc-panel:hover, .dc-panel:focus-visible{ flex-grow:3.4; }
+.dc-panel:hover img, .dc-panel:focus-visible img{ filter:none; transform:scale(1.06); }
+.dc-panel:hover .dc-glass, .dc-panel:focus-visible .dc-glass{ opacity:0; -webkit-backdrop-filter:none; backdrop-filter:none; }
+/* keep the expanded title legible over the now-bright image */
+.dc-panel:hover .dc-panel-in, .dc-panel:focus-visible .dc-panel-in{ background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.62) 100%); }
+.dc-panel:hover h3, .dc-panel:focus-visible h3{ font-size:1.6rem !important; }
+.dc-panel:hover p, .dc-panel:focus-visible p{ max-height:120px; opacity:1; margin-top:12px; }
+
+@media(max-width:900px){
+  .dc-exp-row{ flex-direction:column; height:auto; }
+  .dc-panel{ flex:none; height:180px; }
+  .dc-panel:hover, .dc-panel:focus-visible{ height:280px; flex-grow:0; }
+  .dc-panel p{ font-size:.98rem !important; }
+}
